@@ -45,7 +45,7 @@ export default class App extends Component {
   }
 
   feedbackHandler = (correct, event) => {
-    c// onsole.log(correct)
+    // console.log(correct)
     const data = { correct }
 
     axios.patch(`/api/scans/${this.state.scan.scanId}`, data, {})
