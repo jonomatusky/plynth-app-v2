@@ -60,7 +60,7 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
 
         console.log('automl scan: '+ scan.automlSearch)
 
-        if (scan.automlSearch === 'undefined') {
+        if (scan.automlSearch === undefined) {
             console.log('calling google vision')
             await scan.performVisionSearch()
         }
