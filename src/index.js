@@ -60,7 +60,8 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
 
         console.log('automl scan: '+ scan.automlSearch)
 
-        if (scan.automlSearch === 'undefined' || null) {
+        if (scan.automlSearch === 'undefined') {
+            console.log('calling google vision')
             await scan.performVisionSearch()
         }
 
@@ -76,7 +77,7 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
         res.status(201).send({ album, scanId: scan._id })
         
     } catch (e) {
-        // console.log(e)
+        console.log(e)
         res.status(404).send({ message: `Sorry, couldn't find that one! Try another.` })
     }
 }, (error, req, res, next) => {
