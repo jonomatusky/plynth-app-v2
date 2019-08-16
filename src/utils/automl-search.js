@@ -31,7 +31,7 @@ const automlSearch = async (imageBuffer) => {
     const params = {}
   
     payload.image = {imageBytes: imageBuffer}
-    params.score_threshold = 0.95
+    params.score_threshold = 0.8
   
     console.log('sending')
   
