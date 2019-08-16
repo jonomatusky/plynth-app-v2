@@ -40,7 +40,7 @@ const removeOneWord = (search) => {
     if (searchArray.length > 0) {
         searchArray.pop()
     }
-    console.log(searchArray)
+    // console.log(searchArray)
 }
 
 module.exports = { searchCleanup, removeOneWord }

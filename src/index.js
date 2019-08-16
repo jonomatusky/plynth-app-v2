@@ -58,7 +58,7 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
 
         await scan.performAutomlSearch()
 
-        console.log(scan.automlSearch)
+        console.log('automl scan: '+ scan.automlSearch)
 
         if (scan.automlSearch === 'undefined' || null) {
             await scan.performVisionSearch()
