@@ -56,7 +56,13 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
             source
         })
 
-        await Promise.all([scan.performVisionSearch(), scan.performAutomlSearch()])
+        await scan.performAutomlSearch()
+
+        if (scan.automlSearch === 'undefined' || null) {
+            await scan.performVisionSearch()
+        }
+
+        // await Promise.all([scan.performVisionSearch(), scan.performAutomlSearch()])
         // await scan.performVisionSearch()
         // await scan.save()
         // await scan.performMusicSearch()
@@ -64,7 +70,13 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
         // await scan.performAutomlSearch()
         await scan.save()
         const album = await Album.newFromScan(scan)
-        res.status(201).send({ album, scanId: scan._id })
+
+        if (process.env.PLAY_LOCAL === 'TRUE' || 'undefinted' || null) {
+            res.status(201).send({ album, scanId: scan._id })
+        } else {
+            
+        }
+        
     } catch (e) {
         console.log(e)
         res.status(404).send({ message: `Sorry, couldn't find that one! Try another.` })
