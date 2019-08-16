@@ -14,7 +14,7 @@ export default class App extends Component {
   }
 
   uploadHandler = (event) => {
-    console.log(event.target.files[0])
+    // console.log(event.target.files[0])
     const data = new FormData() 
     data.append('file', event.target.files[0])
 
@@ -27,7 +27,7 @@ export default class App extends Component {
 
     axios.post('/api/scans', data, {})
     .then(res => {
-      console.log(res.data)
+      //console.log(res.data)
       this.setState({ 
         scanning: false,
         scan: res.data
@@ -45,7 +45,7 @@ export default class App extends Component {
   }
 
   feedbackHandler = (correct, event) => {
-    console.log(correct)
+    c// onsole.log(correct)
     const data = { correct }
 
     axios.patch(`/api/scans/${this.state.scan.scanId}`, data, {})

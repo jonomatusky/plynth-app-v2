@@ -32,7 +32,7 @@ const upload = multer({
 app.post('/api/scans', upload.single('file'), async (req, res) => {
     const source = req.hostname
 
-    console.log(req)
+    // console.log(req)
     
     if (!req.file) { res.status(400).send({ error: 'Please upload a file' }) }
 
@@ -46,7 +46,7 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
     try {
         await photo.save()
     } catch (e) {
-        console.log('error:' + e)
+        // console.log('error:' + e)
         res.status(500).send({ error: 'Unable to connect to database.'})
     }
     
@@ -76,7 +76,7 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
         res.status(201).send({ album, scanId: scan._id })
         
     } catch (e) {
-        console.log(e)
+        // console.log(e)
         res.status(404).send({ message: `Sorry, couldn't find that one! Try another.` })
     }
 }, (error, req, res, next) => {

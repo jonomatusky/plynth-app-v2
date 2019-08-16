@@ -51,7 +51,7 @@ const musicSearch = async (search) => {
 
             searchArray.pop()            
         } catch (e) {
-            console.log(e)
+            // console.log(e)
         }
     }
     throw new Error('Unable to find album')
