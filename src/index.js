@@ -58,6 +58,8 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
 
         await scan.performAutomlSearch()
 
+        console.log(scan.automlSearch)
+
         if (scan.automlSearch === 'undefined' || null) {
             await scan.performVisionSearch()
         }
@@ -71,11 +73,7 @@ app.post('/api/scans', upload.single('file'), async (req, res) => {
         await scan.save()
         const album = await Album.newFromScan(scan)
 
-        if (process.env.PLAY_LOCAL === 'TRUE' || 'undefinted' || null) {
-            res.status(201).send({ album, scanId: scan._id })
-        } else {
-            
-        }
+        res.status(201).send({ album, scanId: scan._id })
         
     } catch (e) {
         console.log(e)
