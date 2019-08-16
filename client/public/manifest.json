@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Plynth",
+  "name": "Play your albums with a photo",
   "icons": [
     {
       "src": "favicon.ico",

@@ -41,12 +41,12 @@ const automlSearch = async (imageBuffer) => {
       params: params,
     });
   
-    console.log(response)
+    // console.log(response)
   
-    console.log(`Prediction results:`);
+    //console.log(`Prediction results:`);
     response.payload.forEach(result => {
-      console.log(`Predicted class name: ${result.displayName}`);
-      console.log(`Predicted class score: ${result.classification.score}`);
+      // console.log(`Predicted class name: ${result.displayName}`);
+      // console.log(`Predicted class score: ${result.classification.score}`);
     });
   
     const albumID = response.payload[0].displayName
@@ -74,7 +74,7 @@ const automlSearch = async (imageBuffer) => {
       }
     })
   
-    console.log(musicSearch)
+    // console.log(musicSearch)
   
     return musicSearch
   } catch (e) {

@@ -40,7 +40,7 @@ const musicSearch = async (search) => {
                 }
             })
 
-            console.log(musicSearch)
+            // console.log(musicSearch)
 
             if (musicSearch && musicSearch.albums.items.length > 0) {
                 return musicSearch
