@@ -13,7 +13,7 @@ const client = new automl.PredictionServiceClient({ credentials: JSON.parse(keys
 
 const projectId = `player-228301`
 const computeRegion = `us-central1`
-const modelId = process.env.AUTOML
+const modelId = process.env.['AUTOML']
 // const filePath = `local text file path of content to be classified, e.g. "./resources/test.txt"`
 
 const spotifyCredentials = String(process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET)
